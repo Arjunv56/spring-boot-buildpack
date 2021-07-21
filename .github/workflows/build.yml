@@ -1,6 +1,15 @@
 name: build
 
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      buildOptions:
+        description: Maven Build Options
+        default: ''
+        required: false
+  push:
+    paths:
+    - "**"
 
 jobs:
   build-with-maven-push-2-ghcr:
